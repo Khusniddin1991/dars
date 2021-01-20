@@ -1,6 +1,8 @@
 
 
-class User{
+class User  {
+
+
 
   String email,password,adress,number;
 
@@ -11,13 +13,15 @@ class User{
         this.email=json['email'],
         this.password=json['password'];
   Map<String,dynamic> conertToMap(){
-    return{
+    Map <String,dynamic> map={
       'email':this.email,
       'password':this.password
     };
+
+    return map;
   }
 
-  User.Hive(this.email,this.adress,this.number);
+  User.Hive(this.email,this.adress,this.password);
 
 
 
@@ -34,6 +38,10 @@ class User{
       'adress':this.adress
     };
   }
+  // @override
+  // bool operator==(User user){
+  //   return user.email==this.email && user.password==this.password;
+  // }
 
 
 

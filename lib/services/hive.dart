@@ -21,18 +21,18 @@ class HiveDB{
  static remove(){
     box.delete('user');
   }
-  static storeDatas(User users)async{
-    await box.put('user',users.conertToMap() );
-  }
-
-  static User getDatas(){
-    var user=User.conertToObject(box.get('user'));
-    return user;
-  }
-
-  static removes(){
-    box.delete('user');
-  }
+  // static storeDatas(User users)async{
+  //   await box.put('user',users.conertToMap() );
+  // }
+  //
+  // static User getDatas(){
+  //   var user=User.conertToObject(box.get('user'));
+  //   return user;
+  // }
+  //
+  // static removes(){
+  //   box.delete('user');
+  // }
 
 
 

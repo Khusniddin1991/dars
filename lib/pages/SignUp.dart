@@ -1,6 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutterui10/model/model.dart';
+import 'package:flutterui10/pages/MyHomePage.dart';
 import 'package:flutterui10/pages/Sign%20in.dart';
 import 'package:flutterui10/services/hive.dart';
 import 'package:font_awesome_flutter/font_awesome_flutter.dart';
@@ -19,16 +20,18 @@ class SignUp extends StatefulWidget {
 class _SignUPState extends State<SignUp> {
   final _emails=TextEditingController();
   final __adrsses=TextEditingController();
-  final  _numbers=TextEditingController();
+  final  _password=TextEditingController();
 
   _preform(){
     var email=_emails.text.trim();
     var adrsses=__adrsses.text.trim();
-    var numbers=_numbers.text.trim();
-    var users=User.Hive(email, adrsses, numbers);
-    HiveDB.storeDatas(users);
+    var password=_password.text.trim();
+    var users=User.Hive(email, adrsses, password);
 
-    var user3=HiveDB.getDatas();
+    HiveDB.storeData(users);
+
+
+    // var user3=HiveDB.getDatas();
     // print(user2.password);
     // print(user2.email);
     // print(user2.adress);
@@ -120,7 +123,7 @@ class _SignUPState extends State<SignUp> {
                 Container(
                   padding: EdgeInsets.only(left: 27),
 
-                  child: Text('Number',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
+                  child: Text('Password',style: TextStyle(color: Colors.grey,fontWeight: FontWeight.bold),),
 
                 )
                 ,Container(
@@ -131,7 +134,7 @@ class _SignUPState extends State<SignUp> {
                       border: Border(bottom:BorderSide(color: Colors.grey[100],width: 1))
                   ),
                   child: TextField(
-                    controller: _numbers,
+                    controller:_password,
                     decoration: InputDecoration(
                         border: InputBorder.none
                       // labelText: 'Email'

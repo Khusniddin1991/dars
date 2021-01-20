@@ -28,16 +28,21 @@ class _SigninState extends State<Signin> {
     var user=User(password:password,email: email );
     HiveDB.storeData(user);
     User user2=await HiveDB.getData();
-     var data=await HiveDB.getDatas();
-     // print( data.adress.runtimeType);
-     // data.adress==user2.password?Navigator.pushReplacementNamed(context,MyHomePage.id):print('there is nistake here');
-    _control(users:data,password: password);
+    print(user2.adress);
+    print(user2.password);
+     // var data=await HiveDB.getDatas();
+
+    //  data.adress==user2.password?Navigator.pushReplacementNamed(context,MyHomePage.id):print('there is nistake here');
+    _control(users:user,user: user2);
+    print(user.adress);
 
 
   }
 
-  _control({User users,password}){
-    if(users.adress==password){
+  _control({User users,user}){
+
+
+    if(user.email==users.email && user.password==users.password){
       Navigator.pushReplacementNamed(context,MyHomePage.id);
       print('enter this place successfully ');
     }
